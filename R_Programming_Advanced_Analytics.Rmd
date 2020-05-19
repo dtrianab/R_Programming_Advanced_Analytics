@@ -3,6 +3,11 @@ title: "R Programming Advanced Analytics In R For Data Science"
 output: html_notebook
 ---
 
+```{r}
+library(usethis)
+```
+
+
 https://www.youtube.com/watch?v=rf9q91A7hqM
 
 https://plantronics.udemy.com/course/r-analytics/learn/lecture/5187978?start=30#overview
