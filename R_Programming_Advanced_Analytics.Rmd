@@ -1,0 +1,84 @@
+---
+title: "R Programming Advanced Analytics In R For Data Science"
+output: html_notebook
+---
+
+https://www.youtube.com/watch?v=rf9q91A7hqM
+
+https://plantronics.udemy.com/course/r-analytics/learn/lecture/5187978?start=30#overview
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook created in order to perform the tasks and examples shown in the course "R Programming Advanced Analytics In R For Data Science" published in [Udemy](https://www.udemy.com/) at [Course](https://www.udemy.com/course/r-analytics/). Feel free to dive into this document and use any of it. Feedbacks are always welcome!. 
+
+This is one of my very first contact with R, I decided to start over here having some knowledge already about data science and some other tools such as MatLab or Python.
+
+## Section 2: Data preparation
+The actual directory of a project depends upon each own folder allocation locally, the below command may help to get the current directory that your R environment actually has.  
+```{r}
+#Get the actual directory
+dir<-getwd()
+dir
+```
+
+In case that a particular directory needs to be set, the command setwd() can be used for that purpose. In windows it may need to be used forward slash while pointing to an specific directory. For instance see [Back Slash to Forward Slash](https://stackoverflow.com/questions/17605563/efficiently-convert-backslash-to-forward-slash-in-r)
+
+```{r include=FALSE}
+#setwd("C:\\Users\\DTriana\\Google Drive\\E-Learning\\R")
+```
+
+## Dataset
+
+The data is a financial set proposed by Kirill Eremenko and his team at the following link: [Link](https://www.superdatascience.com/pages/rcourse-advanced).
+
+The below command read the data and further outputs display some primary information based on the imported data.
+
+```{r}
+fin <-read.csv("P3-Future-500-The-Dataset.csv")
+```
+
+```{r}
+#Top six rows
+head(fin,6)
+```
+```{r}
+#Botton 6 rows
+tail(fin, 6)
+```
+
+It is importat to consider that the categorical variables appear as factors with levels. R splits the categorical inputs into numbers or identifiers to be processed in that way, which is rather easier than strings or others for R. 
+
+When R cannot recognize a numeric varible, then it is read as factor. 
+
+```{r}
+#Compactly display the internal structure
+str(fin)
+```
+
+Sometimes it is useful to define variables into categorical inputs, this can be performed with factor() function and reassgining it into the dataset.
+
+```{r echo=TRUE}
+#Changing from non-factor to factor
+fin$ID <-factor(fin$ID)
+fin$Inception <- factor(fin$Inception)
+str(fin)
+```
+
+
+# Factor Variable Trap (FVT)
+ 
+```{r echo=TRUE}
+a <- c("12","13","14","12","12")
+a
+typeof(a)
+b <- as.numeric(a)
+b
+typeof(b)
+z<-factor(a)
+z
+
+y <- as.numeric(z)
+y
+```
+
+
+
+
