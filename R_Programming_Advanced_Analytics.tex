@@ -1,0 +1,354 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={R Programming Advanced Analytics In R For Data Science},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{R Programming Advanced Analytics In R For Data Science}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(usethis)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'usethis' was built under R version 3.6.3
+\end{verbatim}
+
+\url{https://www.youtube.com/watch?v=rf9q91A7hqM}
+
+\url{https://plantronics.udemy.com/course/r-analytics/learn/lecture/5187978?start=30\#overview}
+
+This is an \href{http://rmarkdown.rstudio.com}{R Markdown} Notebook
+created in order to perform the tasks and examples shown in the course
+``R Programming Advanced Analytics In R For Data Science'' published in
+\href{https://www.udemy.com/}{Udemy} at
+\href{https://www.udemy.com/course/r-analytics/}{Course}. Feel free to
+dive into this document and use any of it. Feedbacks are always
+welcome!.
+
+This is one of my very first contact with R, I decided to start over
+here having some knowledge already about data science and some other
+tools such as MatLab or Python.
+
+\hypertarget{section-2-data-preparation}{%
+\subsection{Section 2: Data
+preparation}\label{section-2-data-preparation}}
+
+The actual directory of a project depends upon each own folder
+allocation locally, the below command may help to get the current
+directory that your R environment actually has.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Get the actual directory}
+\NormalTok{dir<-}\KeywordTok{getwd}\NormalTok{()}
+\NormalTok{dir}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "C:/Users/DTriana/Google Drive/E-Learning/R/R_Programming_Advanced_Analytics"
+\end{verbatim}
+
+In case that a particular directory needs to be set, the command setwd()
+can be used for that purpose. In windows it may need to be used forward
+slash while pointing to an specific directory. For instance see
+\href{https://stackoverflow.com/questions/17605563/efficiently-convert-backslash-to-forward-slash-in-r}{Back
+Slash to Forward Slash}
+
+\hypertarget{dataset}{%
+\subsection{Dataset}\label{dataset}}
+
+The data is a financial set proposed by Kirill Eremenko and his team at
+the following link:
+\href{https://www.superdatascience.com/pages/rcourse-advanced}{Link}.
+
+The below command read the data and further outputs display some primary
+information based on the imported data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fin <-}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"P3-Future-500-The-Dataset.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Top six rows}
+\KeywordTok{head}\NormalTok{(fin,}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   ID         Name    Industry Inception Employees State           City
+## 1  1     Over-Hex    Software      2006        25    TN       Franklin
+## 2  2    Unimattax IT Services      2009        36    PA Newtown Square
+## 3  3     Greenfax      Retail      2012        NA    SC     Greenville
+## 4  4    Blacklane IT Services      2011        66    CA         Orange
+## 5  5     Yearflex    Software      2013        45    WI        Madison
+## 6  6 Indigoplanet IT Services      2013        60    NJ      Manalapan
+##       Revenue          Expenses   Profit Growth
+## 1  $9,684,527 1,130,700 Dollars  8553827    19%
+## 2 $14,016,543   804,035 Dollars 13212508    20%
+## 3  $9,746,272 1,044,375 Dollars  8701897    16%
+## 4 $15,359,369 4,631,808 Dollars 10727561    19%
+## 5  $8,567,910 4,374,841 Dollars  4193069    19%
+## 6 $12,805,452 4,626,275 Dollars  8179177    22%
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Botton 6 rows}
+\KeywordTok{tail}\NormalTok{(fin, }\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      ID             Name           Industry Inception Employees State
+## 495 495  Rawfishcomplete Financial Services      2012       124    CA
+## 496 496 Buretteadmirable        IT Services      2009        93    ME
+## 497 497 Inventtremendous       Construction      2009        24    MN
+## 498 498   Overviewparrot             Retail      2011      7125    TX
+## 499 499       Belaguerra        IT Services      2010       140    MI
+## 500 500      Allpossible        IT Services      2011        24    CA
+##            City     Revenue          Expenses   Profit Growth
+## 495 Los Angeles $10,624,949 2,951,178 Dollars  7673771    22%
+## 496    Portland $15,407,450 2,833,136 Dollars 12574314    25%
+## 497    Woodbury  $9,144,857 4,755,995 Dollars  4388862    11%
+## 498  Fort Worth $11,134,728 5,152,110 Dollars  5982618    12%
+## 499        Troy $17,387,130 1,387,784 Dollars 15999346    23%
+## 500 Los Angeles $11,949,706   689,161 Dollars 11260545    24%
+\end{verbatim}
+
+It is importat to consider that the categorical variables appear as
+factors with levels. R splits the categorical inputs into numbers or
+identifiers to be processed in that way, which is rather easier than
+strings or others for R.
+
+When R cannot recognize a numeric varible, then it is read as factor.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Compactly display the internal structure}
+\KeywordTok{str}\NormalTok{(fin)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    500 obs. of  11 variables:
+##  $ ID       : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Name     : Factor w/ 500 levels "Abstractedchocolat",..: 297 451 168 40 485 199 435 339 242 395 ...
+##  $ Industry : Factor w/ 8 levels "","Construction",..: 8 6 7 6 8 6 3 2 6 3 ...
+##  $ Inception: int  2006 2009 2012 2011 2013 2013 2009 2013 2009 2010 ...
+##  $ Employees: int  25 36 NA 66 45 60 116 73 55 25 ...
+##  $ State    : Factor w/ 43 levels "","AL","AZ","CA",..: 37 34 36 4 42 28 23 30 4 9 ...
+##  $ City     : Factor w/ 297 levels "Addison","Alexandria",..: 94 181 105 195 151 154 53 295 232 26 ...
+##  $ Revenue  : Factor w/ 499 levels "","$1,614,585",..: 480 195 486 247 403 142 309 1 97 118 ...
+##  $ Expenses : Factor w/ 498 levels "","1,026,548 Dollars",..: 7 486 4 249 228 248 58 1 403 496 ...
+##  $ Profit   : int  8553827 13212508 8701897 10727561 4193069 8179177 3259485 NA 5274553 11412916 ...
+##  $ Growth   : Factor w/ 33 levels "","-2%","-3%",..: 15 17 12 15 15 19 13 1 27 17 ...
+\end{verbatim}
+
+Sometimes it is useful to define variables into categorical inputs, this
+can be performed with factor() function and reassgining it into the
+dataset.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Changing from non-factor to factor}
+\NormalTok{fin}\OperatorTok{$}\NormalTok{ID <-}\KeywordTok{factor}\NormalTok{(fin}\OperatorTok{$}\NormalTok{ID)}
+\NormalTok{fin}\OperatorTok{$}\NormalTok{Inception <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(fin}\OperatorTok{$}\NormalTok{Inception)}
+\KeywordTok{str}\NormalTok{(fin)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    500 obs. of  11 variables:
+##  $ ID       : Factor w/ 500 levels "1","2","3","4",..: 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Name     : Factor w/ 500 levels "Abstractedchocolat",..: 297 451 168 40 485 199 435 339 242 395 ...
+##  $ Industry : Factor w/ 8 levels "","Construction",..: 8 6 7 6 8 6 3 2 6 3 ...
+##  $ Inception: Factor w/ 16 levels "1999","2000",..: 8 11 14 13 15 15 11 15 11 12 ...
+##  $ Employees: int  25 36 NA 66 45 60 116 73 55 25 ...
+##  $ State    : Factor w/ 43 levels "","AL","AZ","CA",..: 37 34 36 4 42 28 23 30 4 9 ...
+##  $ City     : Factor w/ 297 levels "Addison","Alexandria",..: 94 181 105 195 151 154 53 295 232 26 ...
+##  $ Revenue  : Factor w/ 499 levels "","$1,614,585",..: 480 195 486 247 403 142 309 1 97 118 ...
+##  $ Expenses : Factor w/ 498 levels "","1,026,548 Dollars",..: 7 486 4 249 228 248 58 1 403 496 ...
+##  $ Profit   : int  8553827 13212508 8701897 10727561 4193069 8179177 3259485 NA 5274553 11412916 ...
+##  $ Growth   : Factor w/ 33 levels "","-2%","-3%",..: 15 17 12 15 15 19 13 1 27 17 ...
+\end{verbatim}
+
+\hypertarget{factor-variable-trap-fvt}{%
+\section{Factor Variable Trap (FVT)}\label{factor-variable-trap-fvt}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"12"}\NormalTok{,}\StringTok{"13"}\NormalTok{,}\StringTok{"14"}\NormalTok{,}\StringTok{"12"}\NormalTok{,}\StringTok{"12"}\NormalTok{)}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "12" "13" "14" "12" "12"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typeof}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(a)}
+\NormalTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12 13 14 12 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typeof}\NormalTok{(b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z<-}\KeywordTok{factor}\NormalTok{(a)}
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12 13 14 12 12
+## Levels: 12 13 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(z)}
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3 1 1
+\end{verbatim}
+
+\end{document}

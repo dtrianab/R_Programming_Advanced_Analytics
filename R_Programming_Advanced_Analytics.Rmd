@@ -1,6 +1,8 @@
 ---
 title: "R Programming Advanced Analytics In R For Data Science"
-output: html_notebook
+output:
+  html_notebook: default
+  pdf_document: default
 ---
 
 ```{r}
